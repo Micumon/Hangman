@@ -1,0 +1,18 @@
+A Ą B C Ć D E Ę F G H I J K L Ł M N Ń O Ó P R S Ś T U W Y Z Ź Ż
+
+    global guess_leter_frame
+    global guess_leter_frame_us
+
+    guess_leter_frame_us.destroy()
+    guess_leter_frame.destroy()
+    guess_leter_frame = ttk.Frame(frame)
+    guess_leter_frame.grid(row=2, column=0, columnspan=16, sticky=(W,E))
+    guess_leter_frame_us = ttk.Frame(frame)
+    guess_leter_frame_us.grid(row=3, column=0, columnspan=16, sticky=(W,E))
+
+guess_leter_frame = ttk.Frame(frame)
+guess_leter_frame.grid(row=2, column=0)
+guess_leter_frame_labels = []
+guess_leter_frame_us = ttk.Frame(frame)
+guess_leter_frame_us.grid(row=3, column=0)
+guess_leter_frame_us_labels = []
