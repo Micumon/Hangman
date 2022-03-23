@@ -124,6 +124,10 @@ def new_game():
 
 root = Tk()
 root.title("Wisielec")
+x_start = int(root.winfo_screenwidth()/2)-int(674/2)
+y_start = int(root.winfo_screenheight()/2)-int(535/2)
+pos_start = "+"+str(x_start)+"+"+str(y_start)
+root.geometry(pos_start)
 
 underline_font = font.Font(family='Segoe UI', name='under_font', size=15, underline=True, weight="normal")
 word_varibles = {}
