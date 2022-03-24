@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import font
 from random import randrange
+from tkinter import messagebox
 
 
 def keyboard(letter):
@@ -20,35 +21,27 @@ def keyboard(letter):
         loose_cond -= 1
         print("Pudlo")
     if win_cond == 0:
+        buttons_state(False)
         win()
     if loose_cond == 0:
+        buttons_state(False)
         loose()
 
 
 def win():
-    win_screen = Toplevel(root)
-    root_position = root.geometry()
-    root_position = root_position.replace("x", "+")
-    root_position = root_position.split("+")
-    win_screen_position = ["150x", "150+", str(int(root_position[2])+int(int(root_position[0])/2)-75)+"+",
-                           int(int(root_position[3])+int(root_position[1])/2-75)]
-    win_screen_position_geo = ""
-    for element in win_screen_position:
-        win_screen_position_geo = win_screen_position_geo+str(element)
-    print(win_screen_position_geo)
-    win_screen.geometry(win_screen_position_geo)
-    win_label = ttk.Label(win_screen, text="Zwycięstwo!", justify="center")
-    win_label.grid(row=1, column=1, columnspan=2, sticky=(N, W, E, S))
-    new_game_button_w = ttk.Button(win_screen, text="Nowa gra")
-    new_game_button_w.grid(row=2, column=1, sticky=S)
-    new_game_button_w.bind("<Button-1>", lambda e: new_game())
-    new_game_button_w.bind("<ButtonRelease>", lambda e: win_screen.destroy())
-    close_button_w = ttk.Button(win_screen, text="Zamknij", command=exit)
-    close_button_w.grid(row=2, column=2, sticky=S)
+    decision = messagebox.askyesno(title="Zwycięstwo!", message="Wygrana! Chcesz zagrać jeszcze raz?", icon="info")
+    if decision:
+        new_game()
+    else:
+        exit()
 
 
 def loose():
-    print("przegrana")
+    decision = messagebox.askyesno(title="Przegrana!", message="Przegrana! Chcesz zagrać jeszcze raz?", icon="error")
+    if decision:
+        new_game()
+    else:
+        exit()
 
 
 def draw_gallows(count):
@@ -76,8 +69,9 @@ def draw_gallows(count):
     else:
         gallows[count]()
 
+
 def letter_button(letter, column, row):
-    name = ttk.Button(frame, text=letter, command=lambda: keyboard(letter), width=5)
+    name = ttk.Button(frame, text=letter, command=lambda: keyboard(letter), width=5, state="disabled")
     name.grid(column=column, row=row)
     return name
 
@@ -86,6 +80,16 @@ def letter_labels(column):
     name = ttk.Label(frame, text="   ", font=underline_font)
     name.grid(row=2, column=column, sticky=(W,E))
     return name
+
+
+def buttons_state(flag):
+    global buttons
+    if flag:
+        for button in buttons:
+            button.configure(state="!disabled")
+    else:
+        for button in buttons:
+            button.configure(state="disabled")
 
 
 def new_game():
@@ -97,7 +101,7 @@ def new_game():
     global loose_cond
     global guessed
 
-
+    buttons_state(True)
     for i in range(len(guess_letter_labels)):
         guess_letter_labels[i].destroy()
     guess_letter_labels.clear()
@@ -128,6 +132,7 @@ x_start = int(root.winfo_screenwidth()/2)-int(674/2)
 y_start = int(root.winfo_screenheight()/2)-int(535/2)
 pos_start = "+"+str(x_start)+"+"+str(y_start)
 root.geometry(pos_start)
+root.resizable(FALSE,FALSE)
 
 underline_font = font.Font(family='Segoe UI', name='under_font', size=15, underline=True, weight="normal")
 word_varibles = {}
@@ -168,7 +173,6 @@ new_game_button.grid(row=7, column=4, columnspan=3, sticky=W)
 
 close_button = ttk.Button(frame, text="Zamknij", command=exit)
 close_button.grid(row=7, column=9, columnspan=3, sticky=E)
-
 
 
 root.mainloop()
