@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import font
 from random import randrange
 from tkinter import messagebox
+from file_new import create_file
 
 
 def keyboard(letter):
@@ -19,7 +20,6 @@ def keyboard(letter):
     else:
         draw_gallows(loose_cond)
         loose_cond -= 1
-        print("Pudlo")
     if win_cond == 0:
         buttons_state(False)
         win()
@@ -45,24 +45,36 @@ def loose():
 
 
 def draw_gallows(count):
-    gallows = {10: lambda: playground.create_line(200, 350, 400, 350, fill="brown", width=10, capstyle="round", tags="A"),
-               9: lambda: playground.create_line(300, 350, 300, 50, fill="brown", width=10, capstyle="round", tags="A"),
+    gallows = {10: lambda: playground.create_line(200, 350, 400, 350, fill="brown", width=10, capstyle="round",
+                                                  tags="A"),
+               9: lambda: playground.create_line(300, 350, 300, 50, fill="brown", width=10, capstyle="round",
+                                                 tags="A"),
                8: lambda: playground.create_line(300, 50, 450, 50, fill="brown", width=10, capstyle="round", tags="A"),
-               7: lambda: playground.create_line(450, 50, 450, 100, fill="coral2", width=10, capstyle="round", tags="A"),
+               7: lambda: playground.create_line(450, 50, 450, 100, fill="coral2", width=10, capstyle="round",
+                                                 tags="A"),
                6: [lambda: playground.create_oval(425, 100, 475, 150, fill='yellow', outline='red', tags="A"),
-                   lambda: playground.create_line(440, 150, 460, 150, fill="coral2", width=8, capstyle="round", tags="A"),
+                   lambda: playground.create_line(440, 150, 460, 150, fill="coral2", width=8, capstyle="round",
+                                                  tags="A"),
                    lambda: playground.create_text(450, 120, text='X  X', justify="center", fill='black', tags="A")],
-               5: [lambda: playground.create_line(450, 150, 450, 165, fill="yellow", width=8, capstyle="round", tags="A"),
+               5: [lambda: playground.create_line(450, 150, 450, 165, fill="yellow", width=8, capstyle="round",
+                                                  tags="A"),
                    lambda: playground.create_line(450, 165, 450, 240, fill="blue", width=8, capstyle="round", tags="A"),
-                   lambda: playground.create_line(440, 150, 460, 150, fill="coral2", width=8, capstyle="round", tags="A")],
+                   lambda: playground.create_line(440, 150, 460, 150, fill="coral2", width=8, capstyle="round",
+                                                  tags="A")],
                4: [lambda: playground.create_line(450, 165, 470, 200, fill="blue", width=8, capstyle="round", tags="A"),
-                   lambda: playground.create_line(470, 200, 480, 214, fill="yellow", width=8, capstyle="round", tags="A")],
+                   lambda: playground.create_line(470, 200, 480, 214, fill="yellow", width=8, capstyle="round",
+                                                  tags="A")],
                3: [lambda: playground.create_line(450, 165, 430, 200, fill="blue", width=8, capstyle="round", tags="A"),
-                   lambda: playground.create_line(430, 200, 420, 214, fill="yellow", width=8, capstyle="round", tags="A")],
-               2: [lambda: playground.create_line(450, 240, 470, 275, fill="dark grey", width=8, capstyle="round", tags="A"),
-                   lambda: playground.create_line(470, 275, 480, 275, fill="dark green", width=8, capstyle="round", tags="A")],
-               1: [lambda: playground.create_line(450, 240, 430, 275, fill="dark grey", width=8, capstyle="round", tags="A"),
-                   lambda: playground.create_line(430, 275, 420, 275, fill="dark green", width=8, capstyle="round", tags="A")]}
+                   lambda: playground.create_line(430, 200, 420, 214, fill="yellow", width=8, capstyle="round",
+                                                  tags="A")],
+               2: [lambda: playground.create_line(450, 240, 470, 275, fill="dark grey", width=8, capstyle="round",
+                                                  tags="A"),
+                   lambda: playground.create_line(470, 275, 480, 275, fill="dark green", width=8, capstyle="round",
+                                                  tags="A")],
+               1: [lambda: playground.create_line(450, 240, 430, 275, fill="dark grey", width=8, capstyle="round",
+                                                  tags="A"),
+                   lambda: playground.create_line(430, 275, 420, 275, fill="dark green", width=8, capstyle="round",
+                                                  tags="A")]}
     if type(gallows[count]) is list:
         for func in gallows[count]:
             func()
@@ -78,7 +90,7 @@ def letter_button(letter, column, row):
 
 def letter_labels(column):
     name = ttk.Label(frame, text="   ", font=underline_font)
-    name.grid(row=2, column=column, sticky=(W,E))
+    name.grid(row=2, column=column, sticky=(W, E))
     return name
 
 
@@ -100,7 +112,13 @@ def new_game():
     global win_cond
     global loose_cond
     global guessed
-
+    try:
+        with open("Easy.txt", "r", encoding="utf-8") as f:
+            word_list_unformat = f.readlines()
+    except FileNotFoundError:
+        create_file()
+        with open("Easy.txt", "r", encoding="utf-8") as f:
+            word_list_unformat = f.readlines()
     buttons_state(True)
     for i in range(len(guess_letter_labels)):
         guess_letter_labels[i].destroy()
@@ -111,8 +129,6 @@ def new_game():
     guessed.clear()
     playground.delete("A")
 
-    with open("Easy.txt", "r", encoding="utf-8") as f:
-        word_list_unformat = f.readlines()
     word_list = []
     for line in word_list_unformat:
         line = line.upper()
@@ -132,7 +148,7 @@ x_start = int(root.winfo_screenwidth()/2)-int(674/2)
 y_start = int(root.winfo_screenheight()/2)-int(535/2)
 pos_start = "+"+str(x_start)+"+"+str(y_start)
 root.geometry(pos_start)
-root.resizable(FALSE,FALSE)
+root.resizable(FALSE, FALSE)
 
 underline_font = font.Font(family='Segoe UI', name='under_font', size=15, underline=True, weight="normal")
 word_varibles = {}
@@ -144,18 +160,18 @@ guessed = {"0"}
 
 
 frame = ttk.Frame(root, padding=5)
-frame.grid(row=1, column=0, sticky=(W,S,E,N))
+frame.grid(row=1, column=0, sticky=(W, S, E, N))
 
 
 playground = Canvas(frame, background="azure", relief="sunken", borderwidth=5, height=400, width=650)
-playground.grid(row=1, column=0, columnspan=16, sticky=(W,S,E,N))
+playground.grid(row=1, column=0, columnspan=16, sticky=(W, S, E, N))
 
 separator_line1 = ttk.Separator(frame, orient="horizontal")
-separator_line1.grid(row=3, column=0, columnspan=16, sticky=(W,S,E,N))
+separator_line1.grid(row=3, column=0, columnspan=16, sticky=(W, S, E, N))
 
 
-letters = ("A","Ą","B","C","Ć","D","E","Ę","F","G","H","I","J","K","L","Ł","M","N","Ń","O","Ó","P","R","S","Ś","T","U",
-           "W","Y","Z","Ź","Ż")
+letters = ("A", "Ą", "B", "C", "Ć", "D", "E", "Ę", "F", "G", "H", "I", "J", "K", "L", "Ł", "M", "N", "Ń", "O", "Ó", "P",
+           "R", "S", "Ś", "T", "U", "W", "Y", "Z", "Ź", "Ż")
 buttons = []
 for i in range(len(letters)):
     row = 4
@@ -166,7 +182,7 @@ for i in range(len(letters)):
         buttons.append(letter_button(letters[i], i, row))
 
 separator_line1 = ttk.Separator(frame, orient="horizontal")
-separator_line1.grid(row=6, column=0, columnspan=16, sticky=(W,S,E,N))
+separator_line1.grid(row=6, column=0, columnspan=16, sticky=(W, S, E, N))
 
 new_game_button = ttk.Button(frame, text="Nowa gra", command=new_game)
 new_game_button.grid(row=7, column=4, columnspan=3, sticky=W)

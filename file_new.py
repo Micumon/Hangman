@@ -1,0 +1,21 @@
+def create_file():
+    with open("Easy.txt", "w", encoding="utf-8") as f:
+        f.write("wyraz\nmama\ntata\nsiostra\nsyn\ncórka\nziomek\nbrak\nwnuk\nwnuczka\nlista\nlis\nniedźwiedź\nlew\n"
+                "słoń\nwiewiórka\nkomputer\nklawiatura\nkoleżanka\nkawa\nherbata\nsok\nmonitor\nmazak\nmyszka\nmysz\n"
+                "guzik\nkabel\nkalkulator\nchusteczka\ngumka\nkomórka\nkoszyk\ntorebka\ndługopis\nnabój\npistolet\n"
+                "karabin\nkuweta\nkot\npies\nkalendarz\ndrzwi\nstół\nkrzesło\ntapczan\nłóżko\nszafa\npodłoga\npółka\n"
+                "wtyczka\ndrukarka\nściana\npiłka\nkij\nokno\nsystem\nzlew\nwoda\nziemia\nkaloryfer\ndziurkacz\n"
+                "paczka\nsamochód\nskuter\nmotocykl\nmotor\nsilnik\nkoło\nhulajnoga\nzasłonka\nfiranka\nbuty\n"
+                "kozaki\nmiecz\nszabla\ndzida\nhalabarda\nłuk\nstrzała\nkusza\nbełt\nbrzuch\ngłowa\nwisielec\n"
+                "kartka\npapier\nradio\nkaseta\npłyta\ndach\nklamka\nsedes\nprysznic\nwanna\nsklep\nkasa\n"
+                "pieniądze\nwaluta\nlas\ndrzewa\ntrawa\nkwiat\nskała\ngóra\ntor\npociąg\nlokomotywa\nwagon\n"
+                "linie\nkwadrat\nnapięcie\nkurz\nkolega\npracownik\nniebo\nsłońce\ngwiazda\nplaneta\n"
+                "księżyc\nnoc\ndzień\nranek\nrana\npolana\njezioro\nmorze\nocean\nwyżyna\nkałuża\ndeszcz\nogień\n"
+                "prąd\ngrzmot\npiorun\nkrasnolud\nczłowiek\nelf\nniziołek\nstopa\ngałąź\nliście\nparking\nbudynek\n"
+                "asfalt\nchodnik\npodjazd\nbutelka\nśniadanie\nobiad\nkurczak\nkrowa\nświnia\nkolacja\npodwieczorek\n"
+                "koń\nżona\nmąż\npowietrze\ntlen\nbalon\nblok\nmieszkanie\ngaraż\npojazd\nlatarnia\ngaz\nżyrandol\n"
+                "włącznik\nkula\nstożek\nbłąd\ntulipan\nziemniak\ngruszka\njabłko\nwinogrono\norzech\ntruskawka\n"
+                "doniczka\nżarówka\ndeska\ngłośnik\ntelewizor\npączek\nchleb\nmakaron\npark\nsiłownia\nmaszyna\n"
+                "barometr\nbar\npiwo\nalkohol\npaliwo\nperon\nstacja\nautobus\ndworzec\ndwór\npałac\nzamek\n"
+                "księżniczka\nkościół\nksiądz\npas\nspodnie\nskarpetka\noko\nucho\nusta\nmózg\npalec\nsosna\n"
+                "dąb\nkura\nindyk\ntydzień\nmiesiąc\nszyba\nlustro\nmetal\nmuzyka\npięść")
