@@ -1,0 +1,207 @@
+wyraz:język polski
+mama:relacje
+tata:relacje
+siostra:relacje
+syn:relacje
+córka:relacje
+ziomek:relacje
+brak:relacje
+wnuk:relacje
+wnuczka:relacje
+niedźwiedź:zwierzęta
+słoń:zwierzęta
+wiewiórka:zwierzęta
+komputer:technika
+klawiatura:technika
+koleżanka:relacje
+kawa:pożywienie
+herbata:pożywienie
+sok:pożywienie
+monitor:technika
+mazak:artykuły biurowe
+myszka:technika
+mysz:zwierzęta
+guzik:technika
+kabel:technika
+kalkulator:technika
+chusteczka:higiena
+gumka:artykuły biurowe
+komórka:technika
+koszyk:przechowanie
+torebka:moda
+długopis:artykuły biurowe
+nabój:broń
+pistolet:broń
+karabin:broń
+kuweta:dom i ogród
+pies:zwierzęta
+kalendarz:organizacja
+drzwi:dom i ogród
+stół:dom i ogród
+krzesło:dom i ogród
+tapczan:dom i ogród
+łóżko:dom i ogród
+szafa:dom i ogród
+podłoga:dom i ogród
+półka:dom i ogród
+wtyczka:technika
+drukarka:technika
+ściana:dom i ogród
+piłka:sport i zabawa
+okno:dom i ogród
+system:informatyka
+zlew:dom i ogród
+woda:natura
+ziemia:natura
+kaloryfer:dom i ogród
+dziurkacz:artykuły biurowe
+paczka:zakupy
+samochód:środki lokomocji
+skuter:środki lokomocji
+motocykl:środki lokomocji
+motor:środki lokomocji
+silnik:technika
+koło:geometria
+hulajnoga:środki lokomocji
+zasłonka:dom i ogród
+firanka:dom i ogród
+buty:moda
+kozaki:moda
+sandały:moda
+miecz:broń
+szabla:broń
+dzida:broń
+halabarda:broń
+strzała:broń
+kusza:broń
+brzuch:człowiek
+głowa:człowiek
+wisielec:człowiek
+kartka:artykuły biurowe
+papier:artykuły biurowe
+radio:technika
+kaseta:technika
+płyta:technika
+dach:budownictwo
+klamka:dom i ogród
+sedes:dom i ogród
+prysznic:dom i ogród
+wanna:dom i ogród
+sklep:budownictwo
+kasa:zakupy
+pieniądze:zakupy
+waluta:zakupy
+drzewa:natura
+trawa:natura
+kwiat:natura
+skała:natura
+góra:natura
+pociąg:środki lokomocji
+lokomotywa:środki lokomocji
+wagon:środki lokomocji
+linie:geometria
+kwadrat:geometria
+napięcie:technika
+kurz:dom i ogród
+kolega:relacje
+pracownik:zawód
+niebo:natura
+słońce:kosmos
+gwiazda:kosmos
+kosmos:kosmos
+planeta:kosmos
+księżyc:kosmos
+dzień:czas
+ranek:czas
+polana:natura
+jezioro:natura
+morze:natura
+ocean:natura
+wyżyna:natura
+kałuża:pogoda
+deszcz:pogoda
+ogień:natura
+prąd:technika
+grzmot:pogoda
+piorun:pogoda
+krasnolud:fantastyka
+człowiek:człowiek
+niziołek:fantastyka
+stopa:człowiek
+gałąź:natura
+liście:natura
+parking:przemieszczanie
+budynek:budownictwo
+asfalt::budownictwo
+chodnik:przemieszczanie
+podjazd:przemieszczanie
+butelka:przechowanie
+śniadanie:pożywienie
+obiad:pożywienie
+kurczak:zwierzęta
+krowa:zwierzęta
+świnia:zwierzęta
+kolacja:pożywienie
+podwieczorek:pożywienie
+żona:relacje
+mąż:relacje
+powietrze:natura
+tlen:chemia
+balon:sport i zabawa
+blok:budownictwo
+mieszkanie:budownictwo
+garaż:budownictwo
+pojazd:środki lokomocji
+latarnia:technika
+żyrandol:dom i ogród
+włącznik:dom i ogród
+kula:geometria
+stożek:geometria
+tulipan:natura
+ziemniak:pożywienie
+gruszka:pożywienie
+jabłko:pożywienie
+winogrono:pożywienie
+orzech:pożywienie
+truskawka:pożywienie
+doniczka:dom i ogród
+żarówka:dom i ogród
+deska:budownictwo
+głośnik:technika
+telewizor:technika
+pączek:pożywienie
+chleb:pożywienie
+makaron:pożywienie
+park:natura
+siłownia:budownictwo
+maszyna:technika
+barometr:technika
+piwo:pożywienie
+alkohol:pożywienie
+paliwo:środki lokomocji
+peron:budownictwo
+stacja:budownictwo
+autobus:środki lokomocji
+dworzec:budownictwo
+dwór:budownictwo
+pałac:budownictwo
+zamek:budownictwo
+księżniczka:zawód
+kościół:budownictwo
+ksiądz:zawód
+spodnie:moda
+skarpeta:moda
+ucho:człowiek
+usta:człowiek
+mózg:człowiek
+palec:człowiek
+sosna:natura
+kura:zwierzęta
+indyk:zwierzęta
+tydzień:czas
+miesiąc:czas
+godzina:czas
+minuta:czas
+lustro:dom i ogród
+muzyka:muzyka
+pięść:człowiek
