@@ -11,6 +11,8 @@ def keyboard(letter):
     global word
     global loose_cond
     global win_cond
+    global buttons
+
     if letter in word and letter not in guessed:
         for i in range(len(word)):
             if word[i] == letter:
@@ -20,6 +22,10 @@ def keyboard(letter):
     else:
         draw_gallows(loose_cond)
         loose_cond -= 1
+    for button in buttons:
+        if button["text"] == letter:
+            button.configure(style="used.TButton")
+
     if win_cond == 0:
         buttons_state(False)
         win()
@@ -102,7 +108,8 @@ def buttons_state(flag):
     else:
         for button in buttons:
             button.configure(state="disabled")
-
+    for button in buttons:
+        button.configure(style="TButton")
 
 def new_game():
     global word_varibles
@@ -149,6 +156,8 @@ y_start = int(root.winfo_screenheight()/2)-int(535/2)
 pos_start = "+"+str(x_start)+"+"+str(y_start)
 root.geometry(pos_start)
 root.resizable(FALSE, FALSE)
+styles = ttk.Style()
+styles.configure("used.TButton", background="red")
 
 underline_font = font.Font(family='Segoe UI', name='under_font', size=15, underline=True, weight="normal")
 word_varibles = {}
