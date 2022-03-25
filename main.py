@@ -43,6 +43,10 @@ def win():
 
 
 def loose():
+    global word
+    global guess_letter_labels
+    for i in range(len(word)):
+        guess_letter_labels[i].configure(text=word[i])
     decision = messagebox.askyesno(title="Przegrana!", message="Przegrana! Chcesz zagrać jeszcze raz?", icon="error")
     if decision:
         new_game()
@@ -111,14 +115,15 @@ def buttons_state(flag):
     for button in buttons:
         button.configure(style="TButton")
 
+
 def new_game():
-    global word_varibles
     global guess_letter_labels
     global letters
     global word
     global win_cond
     global loose_cond
     global guessed
+
     try:
         with open("Easy.txt", "r", encoding="utf-8") as f:
             word_list_unformat = f.readlines()
@@ -130,20 +135,24 @@ def new_game():
     for i in range(len(guess_letter_labels)):
         guess_letter_labels[i].destroy()
     guess_letter_labels.clear()
-    word_varibles.clear()
     win_cond = 0
     loose_cond = 10
     guessed.clear()
     playground.delete("A")
 
+    category_list = []
     word_list = []
     for line in word_list_unformat:
         line = line.upper()
-        word_list.append(line.rstrip())
-    word = word_list[randrange(len(word_list))]
+        line = line.rstrip()
+        line = line.split(":")
+        word_list.append(line[0])
+        category_list.append(line[1])
+    rand_index = randrange(len(word_list))
+    word = word_list[rand_index]
+    category = "KATEGORIA: "+str(category_list[rand_index])
+    playground.create_text(325, 390, text=category, justify="center", fill='black', tags="A")
     win_cond = len(word)
-    for letter in word:
-        word_varibles[letter] = 0
     column_offset = int((len(letters)/4)-(len(word)/2))
     for i in range(len(word)):
         guess_letter_labels.append(letter_labels(i+column_offset))
@@ -160,12 +169,12 @@ styles = ttk.Style()
 styles.configure("used.TButton", background="red")
 
 underline_font = font.Font(family='Segoe UI', name='under_font', size=15, underline=True, weight="normal")
-word_varibles = {}
 guess_letter_labels = []
 word = ""
 win_cond = 0
 loose_cond = 10
 guessed = {"0"}
+
 
 
 frame = ttk.Frame(root, padding=5)
