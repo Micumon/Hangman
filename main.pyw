@@ -39,7 +39,7 @@ def win():
     if decision:
         new_game()
     else:
-        exit()
+        root.destroy()
 
 
 def loose():
@@ -51,7 +51,7 @@ def loose():
     if decision:
         new_game()
     else:
-        exit()
+        root.destroy()
 
 
 def draw_gallows(count):
@@ -175,8 +175,6 @@ win_cond = 0
 loose_cond = 10
 guessed = {"0"}
 
-
-
 frame = ttk.Frame(root, padding=5)
 frame.grid(row=1, column=0, sticky=(W, S, E, N))
 
@@ -205,7 +203,7 @@ separator_line1.grid(row=6, column=0, columnspan=16, sticky=(W, S, E, N))
 new_game_button = ttk.Button(frame, text="Nowa gra", command=new_game)
 new_game_button.grid(row=7, column=4, columnspan=3, sticky=W)
 
-close_button = ttk.Button(frame, text="Zamknij", command=exit)
+close_button = ttk.Button(frame, text="Zamknij", command=lambda: root.destroy())
 close_button.grid(row=7, column=9, columnspan=3, sticky=E)
 
 
